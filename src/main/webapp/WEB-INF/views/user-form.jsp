@@ -5,6 +5,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <style>
+
+            .reg {
+                border: 1px solid gray;
+                margin : 20px auto;
+                padding: 15px;
+                width: 40%;
+            }
+
+        </style>
 </head>
 <body>
 
@@ -12,16 +23,16 @@
     jsp주석입니다.
     form태그의 action속성에는 양식의 입력데이터를 보낼 서버 URL을 적습니다.
 --%>
-<form action="/user/confirm" method="POST">
-    # 이름 : <input type = "text" name="name"> <br>
-    # 키 : <input type = "text" name="height"> <br>
-    # 몸무게 : <input type = "text" name="weight"> <br>
 
-    <button type="submit">등록</button>
+    <div class="reg">
+        <form action="/user/confirm" method="POST">
+            # 이름 : <input type = "text" name="userName"> <br>
+            # 키 : <input type = "text" name="height"> <br>
+            # 몸무게 : <input type = "text" name="weight"> <br>
 
-
-</form>
+            <button type="submit">등록</button>
+        </form>
+    </div>
 
 </body>
-
 </html>

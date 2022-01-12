@@ -95,7 +95,7 @@ public class BasicV2Controller {
         return "/WEB-INF/views/user-bmi.jsp";
     }
 
-    //사용자에게 키(cm)랑 몸무게(kg), 이름을 입력받아서
+    //사용자에게 키(cm)랑 몸무게(kg),이름을 입력받아서
     // 결과페이지에서 bmi를 알려주세요~
 
     // ex) xxx님의 bmi지수는 xxx입니다.

@@ -1,9 +1,13 @@
 package com.spring.mvc.basic.controller.v2;
 
+import lombok.*;
+
+@Getter @Setter @ToString
+@NoArgsConstructor @AllArgsConstructor
 public class UserBmi {
 
-    private String name;
-    private String height;
-    private String weight;
+    private String userName;
+    private double height;
+    private double weight;
 
 }
