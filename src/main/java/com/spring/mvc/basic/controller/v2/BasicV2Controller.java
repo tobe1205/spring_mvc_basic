@@ -79,20 +79,32 @@ public class BasicV2Controller {
     public String userJoin(User userInfo, Model model) {
         model.addAttribute("ui",userInfo);
         System.out.println(userInfo);
-        return "/WEB-INF/views/user-result.jsp";
+        return "user-result";
 
     }
 
     @GetMapping("/user/bmi")
     public String userBmi(){
-        return "/WEB-INF/views/user-form.jsp";
+        return "user-form";
     }
 
     @PostMapping("/user/confirm")
-    public String userConfirm(UserBmi userBmi, Model model){
-        model.addAttribute("ub",userBmi);
+    public String userConfirm(UserBmi userBmi,Model model){
+        //공식 : kg /(m * n)
+        double kg = userBmi.getWeight();
+        double m = userBmi.getHeight() /100;
+        double bmi = kg / (m * m);
+
+        //반올림
+        bmi = Math.round(bmi*100)/100.00;
+
+        model.addAttribute("userName",userBmi.getUserName());
+        model.addAttribute("height",userBmi.getHeight());
+        model.addAttribute("weight",userBmi.getWeight());
+        model.addAttribute("bmi", bmi);
+
         System.out.println(userBmi);
-        return "/WEB-INF/views/user-bmi.jsp";
+        return "user-bmi";
     }
 
     //사용자에게 키(cm)랑 몸무게(kg),이름을 입력받아서
