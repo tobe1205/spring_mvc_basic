@@ -94,7 +94,6 @@ public class BasicV2Controller {
         double kg = userBmi.getWeight();
         double m = userBmi.getHeight() /100;
         double bmi = kg / (m * m);
-
         //반올림
         bmi = Math.round(bmi*100)/100.00;
 

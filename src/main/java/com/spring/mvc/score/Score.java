@@ -28,4 +28,14 @@ public class Score {
         this.eng = eng;
         this.math = math;
     }
+
+    public int getTotal(int kor,int eng,int math) {
+        this.total = kor + eng + math;
+        return total;
+    }
+
+    public double getAverage(int total) {
+        this.average = total / (double)3;
+        return average;
+    }
 }
