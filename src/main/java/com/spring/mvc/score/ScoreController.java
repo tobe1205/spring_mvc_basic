@@ -1,6 +1,6 @@
 package com.spring.mvc.score;
 
-import com.sun.org.apache.xpath.internal.operations.Mod;
+
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.xml.bind.Unmarshaller;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @Log4j2
@@ -21,6 +23,13 @@ public class ScoreController {
 //    public ScoreController(ScoreRepository scoreRepository){
 //        this.scoreRepository = scoreRepository;
 //    }
+    private final ScoreRepository scoreRepository;
+
+    @Autowired
+    public ScoreController(ScoreRepository scoreRepository) {
+        this.scoreRepository = scoreRepository;
+    }
+
 
     @GetMapping("/score/form")
     public String form(){
@@ -34,13 +43,17 @@ public class ScoreController {
 
         model.addAttribute("s",score);
 
-
-
         return "score/score-list";
     }
 
+    @GetMapping("/score/list")
+    public String list(Model model){
+        log.info("/score/list GET!!");
+        List<Score> scores = scoreRepository.findAll();
+        model.addAttribute("s",scores);
+        return "score/score-list";
 
-
+    }
 
 
 }
