@@ -40,7 +40,7 @@
         }
 
         section.score {
-            padding: 200px 50px 100px;
+          /*  padding: 200px 50px 100px; */
             font-size: 1.5em;
         }
     </style>
@@ -49,6 +49,7 @@
 <body>
 
     <div class="wrap">
+
 
         <section class="score">
             <h1>시험 점수 등록</h1>
@@ -78,10 +79,10 @@
 
                 <c:forEach var="s" items="${scores}">
                     <li>
-                        # 학번: ${s.stuNum}, 이름: <a href="/score/detail?stuNum=${s.stuNum}">${s.name}</a>, 국어:
+                        # 학번: ${s.stuNum}, 이름: <a href="/score/detail?stuNum=${s.stuNum}">${s.markName}</a>, 국어:
                         ${s.kor}점,
                         영어: ${s.eng}점, 수학: ${s.math}점, 총점: ${s.total}점
-                        , 평균: ${s.average}점
+                        , 평균: ${s.average}점, 학점: ${s.grade}
                         <a class="del-btn" href="/score/delete?stuNum=${s.stuNum}">삭제</a>
                     </li>
                 </c:forEach>
