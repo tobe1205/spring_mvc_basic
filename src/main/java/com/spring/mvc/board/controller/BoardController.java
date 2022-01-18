@@ -68,16 +68,16 @@ public class BoardController {
         model.addAttribute("article", boardService.getContent(boardNo));
         return "board/modify";
     }
-//
-//    //글 수정 처리요청
-//    @PostMapping("/board/modify")
-//    public String modify(ModifyBoard modArticle) {
-//        Board board = boardService.getContent(modArticle.getBoardNo());
-//        board.setWriter(modArticle.getTitle());
-//        board.setTitle(modArticle.getTitle());
-//        board.setContent(modArticle.getContent());
-//        boardService.modifyArticle(board);
-//        return "redirect:/board/content?boardNo="+modArticle.getBoardNo();
-//    }
+
+    //글 수정 처리요청
+    @PostMapping("/board/modify")
+    public String modify(ModifyBoard modArticle) {
+        Board board = boardService.getContent(modArticle.getBoardNo());
+        board.setWriter(modArticle.getWriter());
+        board.setTitle(modArticle.getTitle());
+        board.setContent(modArticle.getContent());
+        boardService.modifyArticle(board);
+        return "redirect:/board/content?boardNo="+modArticle.getBoardNo();
+    }
 
 }
