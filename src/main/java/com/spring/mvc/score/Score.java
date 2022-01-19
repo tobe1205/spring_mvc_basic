@@ -3,6 +3,8 @@ package com.spring.mvc.score;
 
 import lombok.*;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Arrays;
 
 @Getter @Setter @ToString
@@ -38,6 +40,19 @@ public class Score {
 
     }
 
+    //DB조회데이터 처리 생성자
+    public Score(ResultSet rs) throws SQLException {
+
+        this.stuNum = rs.getInt("stu_num");
+        this.name = rs.getString("stu_name");
+        this.kor = rs.getInt("kor");
+        this.eng = rs.getInt("eng");
+        this.math = rs.getInt("math");
+        this.total = rs.getInt("total");
+        this.average = rs.getDouble("average");
+        this.grade = Grade.valueOf(rs.getString("grade"));
+
+    }
     //총점과 평균을 구하는 메서드
     public void calcTotal() {
         this.total = this.kor + this.eng + this.math;
