@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository("jbr")
-public class JDBCBoardRepostiory implements BoardRepository {
+public class JDBCBoardRepository implements BoardRepository {
 
     //DB접속정보 설정
     private String uid = "java01";
