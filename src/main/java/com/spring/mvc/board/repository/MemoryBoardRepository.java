@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Repository
+@Repository("mbr")
 public class MemoryBoardRepository implements BoardRepository {
 
     private static Map<Integer, Board> boardMap = new HashMap<>();
@@ -30,13 +30,15 @@ public class MemoryBoardRepository implements BoardRepository {
     }
 
     @Override
-    public void insertArticle(Board article) {
+    public boolean insertArticle(Board article) {
         boardMap.put(article.getBoardNo(), article);
+        return false;
     }
 
     @Override
-    public void deleteArticle(int boardNo) {
+    public boolean deleteArticle(int boardNo) {
         boardMap.remove(boardNo);
+        return false;
     }
 
     @Override
@@ -45,9 +47,11 @@ public class MemoryBoardRepository implements BoardRepository {
     }
 
     @Override
-    public void modifyArticle(Board article) {
+    public boolean modifyArticle(Board article) {
         int boardNo = article.getBoardNo();
         if (boardMap.containsKey(boardNo))
             boardMap.put(boardNo, article); //수정
+        return false;
     }
+
 }
