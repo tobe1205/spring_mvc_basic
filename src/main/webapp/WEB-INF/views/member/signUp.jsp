@@ -3,7 +3,7 @@
 
 <body>
 <h1> 회원가입 페이지 </h1>
-<form action="/signUp" method = "POST">
+<form action="/sign-up" method = "POST">
     account : <input type="text" name= "account"> <br>
     password : <input type="text" name= "password"> <br>
     name : <input type="text" name= "name"> <br>

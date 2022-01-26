@@ -23,7 +23,7 @@ public class MemberController {
         this.memberService = memberService;
     }
 
-    //로그인 화면 열기
+    //회원가입 화면 열기
     @GetMapping("/join")
     public String join(){
         return "member/join";
