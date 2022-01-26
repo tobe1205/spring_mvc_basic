@@ -3,11 +3,13 @@ package com.spring.mvc.member.service;
 
 import com.spring.mvc.member.domain.Member;
 import com.spring.mvc.member.repository.MemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
+//@RequiredArgsConstructor //자동 주입
 public class MemberService {
 
     private final MemberRepository memberRepository;
@@ -25,16 +27,12 @@ public class MemberService {
         memberRepository.register(member);
     }
     //아이디 중복확인
-    public int isDuplicateId(String inputKeyword){
-        memberRepository.isDuplicateId(inputKeyword);
-        int result = memberRepository.isDuplicateId(inputKeyword);
-        return result;
+    public boolean isDuplicateId(String account){
+        return memberRepository.isDuplicateId(account) == 1;
     }
     //이메일 중복확인
-    public int isDuplicateEmail(String inputKeyword){
-        memberRepository.isDuplicateEmail(inputKeyword);
-        int result2 = memberRepository.isDuplicateEmail(inputKeyword);
-        return result2;
+    public boolean isDuplicateEmail(String email){
+        return memberRepository.isDuplicateEmail(email) == 1;
     }
     // 단일 회원정보 확인
     public Member findMember(String account){
