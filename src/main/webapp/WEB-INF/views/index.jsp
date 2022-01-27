@@ -7,6 +7,7 @@
     <%@ include file="include/static-head.jsp" %>
 </head>
 
+
 <body>
 
     <div class="wrap">

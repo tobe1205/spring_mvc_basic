@@ -72,6 +72,7 @@
                 </div>
 
 
+
                 <div class="btn-group btn-group-lg custom-btn-group" role="group">
                     <button id="mod-btn" type="submit" class="btn btn-warning">완료</button>
                     <button type="button" class="btn btn-dark">목록</button>
@@ -84,6 +85,7 @@
 
         <%@ include file="../include/footer.jsp" %>
     </div>
+
 
 
 

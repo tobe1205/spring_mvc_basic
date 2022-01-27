@@ -53,6 +53,7 @@ public class MemberService {
         }
     }
 
+
     //회원정보 가져오기
     public Member getMember(String account){
         return memberRepository.findMember(account);

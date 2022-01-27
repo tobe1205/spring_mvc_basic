@@ -248,6 +248,7 @@
 
             });
 
+
             //이메일 입력값 검증.
             const $emailInput = $('#user_email');
             $emailInput.on('keyup', function () {
